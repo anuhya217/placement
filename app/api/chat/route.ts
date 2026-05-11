@@ -3,6 +3,8 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { coachReply } from "@/services/ai/chat";
 
+export const maxDuration = 60; // Max allowed for Vercel Hobby tier
+
 const bodySchema = z.object({
   messages: z.array(
     z.object({

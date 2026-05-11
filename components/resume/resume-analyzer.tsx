@@ -33,6 +33,10 @@ export function ResumeAnalyzerPanel() {
         method: "POST",
         body: fd,
       });
+      const contentType = res.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error(`Server error (${res.status}): Please ensure your file is under 4.5MB and try again. If it persists, it may be a timeout.`);
+      }
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Failed");
       setResult(json.analysis as ResumeAnalysis);
@@ -57,7 +61,7 @@ export function ResumeAnalyzerPanel() {
           <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-zinc-300 bg-zinc-50 px-6 py-12 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800">
             <UploadCloud className="mb-2 h-8 w-8 text-emerald-600" />
             <span className="text-sm font-medium">Drop PDF or click to browse</span>
-            <span className="mt-1 text-xs text-zinc-500">Max 5MB · ATS-focused scoring</span>
+            <span className="mt-1 text-xs text-zinc-500">Max 4.5MB · ATS-focused scoring</span>
             <input
               type="file"
               accept="application/pdf"

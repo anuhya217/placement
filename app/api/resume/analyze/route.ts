@@ -5,8 +5,9 @@ import { extractTextFromPdfBuffer } from "@/lib/pdf/extract";
 import { analyzeResumeText } from "@/services/ai/resume-analyzer";
 
 export const runtime = "nodejs";
+export const maxDuration = 60; // Max allowed for Vercel Hobby tier
 
-const MAX_BYTES = 5 * 1024 * 1024;
+const MAX_BYTES = 4.5 * 1024 * 1024; // Vercel Serverless limit is 4.5MB
 
 export async function POST(request: Request) {
   try {
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
 
     if (file.size > MAX_BYTES) {
       return NextResponse.json(
-        { error: "File too large (max 5MB)" },
+        { error: "File too large (max 4.5MB)" },
         { status: 400 }
       );
     }
