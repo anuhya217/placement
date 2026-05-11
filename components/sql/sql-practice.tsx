@@ -72,7 +72,7 @@ export function SqlPractice({
       </div>
 
       <div className="grid gap-4">
-          {filtered.map((q, i) => {
+          {filtered.map((q) => {
             const row = progMap.get(q.id);
             const solved = row?.solved ?? false;
             const open = openId === q.id;

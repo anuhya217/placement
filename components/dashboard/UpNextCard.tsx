@@ -51,7 +51,7 @@ export const UpNextCard = React.memo(function UpNextCard({ recommendation }: UpN
             </div>
             <div>
               <h3 className="font-semibold text-sm">All Caught Up!</h3>
-              <p className="text-xs text-zinc-500 mt-1">You've finished your current roadmap.</p>
+              <p className="text-xs text-zinc-500 mt-1">You&apos;ve finished your current roadmap.</p>
             </div>
           </CardContent>
         </Card>

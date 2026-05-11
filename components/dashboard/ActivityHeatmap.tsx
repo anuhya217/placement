@@ -37,7 +37,6 @@ export function ActivityHeatmap({ data }: ActivityHeatmapProps) {
             blockRadius={4}
             blockMargin={4}
             fontSize={12}
-            hideTotalCount
           />
         </div>
       </CardContent>

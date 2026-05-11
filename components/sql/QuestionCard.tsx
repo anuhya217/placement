@@ -11,7 +11,6 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import type { LeetCodeSqlQuestion } from "@/data/sqlQuestions";
 

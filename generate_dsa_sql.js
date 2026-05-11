@@ -1,12 +1,9 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 
 const tsCode = fs.readFileSync('data/dsaQuestions.ts', 'utf8');
 // We need to parse the array carefully, since it's huge. 
 // A safer way is to just compile it using ts-node or just require it if we strip the export
-const script = `
-  ${tsCode.replace('export const dsaQuestions', 'const dsaQuestions').replace('export interface', 'interface').replace('export type', 'type')}
-  return dsaQuestions;
-`;
 
 try {
   const getArray = new Function(

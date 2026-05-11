@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { BookOpen, Database, Flame, Target, Trophy, ArrowRight, Zap } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { BookOpen, Database, Flame, Trophy, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ const ActivityHeatmap = dynamic(
 import { useRealtimeProgress } from "@/hooks/dashboard/useRealtimeProgress";
 import type { DashboardStats, ActivityItem, Recommendation } from "@/types/dashboard";
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -25,7 +25,7 @@ const container = {
   }
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
@@ -35,7 +35,7 @@ interface DashboardClientProps {
   firstName: string;
   stats: DashboardStats;
   activities: ActivityItem[];
-  heatmapData: any[];
+  heatmapData: { date: string; count: number; level: number }[];
   recommendation: Recommendation | null;
 }
 
@@ -73,7 +73,7 @@ export function DashboardClient({
             Welcome back, <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-emerald-400">{firstName}.</span>
           </h1>
           <p className="text-lg text-zinc-400 mb-8 max-w-xl leading-relaxed">
-            You're on a {stats.currentStreak}-day streak. Keep pushing through the DSA roadmap and tackle the next challenge to stay sharp.
+            You&apos;re on a {stats.currentStreak}-day streak. Keep pushing through the DSA roadmap and tackle the next challenge to stay sharp.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button variant="gradient" size="lg" className="rounded-full font-semibold gap-2" asChild>

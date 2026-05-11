@@ -1,14 +1,12 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
-import { FileText, Search, Bookmark, BookmarkCheck, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import { Search, Bookmark, BookmarkCheck, ChevronDown, ChevronUp } from "lucide-react";
 import { toast } from "sonner";
 import type { UserProgress } from "@/types";
 import { toggleDsaProgress, saveDsaNotes } from "@/app/actions/dsa";
 import { formatPercent } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -17,7 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Card,
   CardContent,
@@ -76,7 +73,7 @@ export function DsaTracker({
       if (saved) {
         setBookmarks(new Set(JSON.parse(saved)));
       }
-    } catch (e) {}
+    } catch {}
   }, []);
 
   const progressMap = useMemo(() => {

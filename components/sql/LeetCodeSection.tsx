@@ -20,7 +20,7 @@ export function LeetCodeSection() {
     if (stored) {
       try {
         setCompletedIds(JSON.parse(stored));
-      } catch (e) {
+      } catch {
         // ignore
       }
     }

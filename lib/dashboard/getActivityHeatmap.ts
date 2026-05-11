@@ -23,7 +23,7 @@ export async function getActivityHeatmap(userId: string) {
 
   const map = new Map<string, number>();
 
-  const processDates = (progressList: any[]) => {
+  const processDates = (progressList: { updated_at: string | null }[]) => {
     if (!progressList) return;
     for (const row of progressList) {
       if (!row.updated_at) continue;
