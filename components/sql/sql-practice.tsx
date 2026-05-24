@@ -53,9 +53,9 @@ export function SqlPractice({
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
-      <div className="flex items-center justify-between bg-zinc-50/50 dark:bg-zinc-900/50 p-4 rounded-2xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-zinc-50/50 dark:bg-zinc-900/50 p-4 rounded-2xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-xl">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+          <div className="h-10 w-10 shrink-0 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
             <Database className="h-5 w-5" />
           </div>
           <div>
@@ -67,7 +67,7 @@ export function SqlPractice({
           placeholder="Search SQL prompts…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="max-w-xs bg-white dark:bg-zinc-950"
+          className="w-full sm:max-w-xs bg-white dark:bg-zinc-950"
         />
       </div>
 
@@ -81,8 +81,8 @@ export function SqlPractice({
                 key={q.id}
               >
                 <Card className={`group transition-all duration-300 ${solved ? 'border-emerald-500/30 bg-emerald-50/10 dark:bg-emerald-950/10' : 'hover:border-blue-500/30'}`}>
-                  <CardHeader className="flex flex-row items-start justify-between gap-4 space-y-0 pb-4">
-                    <div className="space-y-2">
+                  <CardHeader className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 space-y-0 pb-4">
+                    <div className="space-y-2 w-full">
                       <div className="flex flex-wrap items-center gap-2">
                         <CardTitle className={`text-base ${solved ? 'text-emerald-700 dark:text-emerald-400' : ''}`}>
                           {q.title}
@@ -96,7 +96,7 @@ export function SqlPractice({
                         Toggle solved after you write the query in your local SQL IDE.
                       </CardDescription>
                     </div>
-                    <div className="flex items-center gap-3 shrink-0 bg-white/50 dark:bg-zinc-900/50 p-1.5 rounded-lg border border-zinc-200/50 dark:border-zinc-800/50">
+                    <div className="flex items-center justify-between sm:justify-start gap-3 shrink-0 bg-white/50 dark:bg-zinc-900/50 p-1.5 rounded-lg border border-zinc-200/50 dark:border-zinc-800/50 w-full sm:w-auto mt-2 sm:mt-0">
                       <Checkbox
                         checked={solved}
                         onCheckedChange={(c) => onSolved(q.id, c === true)}

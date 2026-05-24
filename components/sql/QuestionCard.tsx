@@ -113,7 +113,7 @@ export function QuestionCard({ question, isCompleted, onToggleComplete }: Questi
         </div>
       </CardContent>
       <CardFooter className="pt-1 pb-4">
-        <div className="flex w-full items-center justify-between gap-4">
+        <div className="flex w-full flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
           <Button variant="outline" size="sm" asChild className="w-full">
             <Link href={`/practice/${question.slug}`}>Practice Details</Link>
           </Button>

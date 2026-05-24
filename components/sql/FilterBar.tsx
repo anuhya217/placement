@@ -38,8 +38,8 @@ export function FilterBar({
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      <div className="flex gap-2">
-        <div className="w-[140px]">
+      <div className="flex gap-2 w-full md:w-auto">
+        <div className="w-1/2 md:w-[140px]">
           <Select value={difficultyFilter} onValueChange={setDifficultyFilter}>
             <SelectTrigger>
               <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ export function FilterBar({
             </SelectContent>
           </Select>
         </div>
-        <div className="w-[160px]">
+        <div className="w-1/2 md:w-[160px]">
           <Select value={topicFilter} onValueChange={setTopicFilter}>
             <SelectTrigger>
               <SelectValue placeholder="Topic" />
